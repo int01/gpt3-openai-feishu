@@ -82,6 +82,7 @@ class EventManager(object):
 
     @staticmethod
     def get_handler_with_event(token, encrypt_key):
+        # print("token and encrypt_key->", token, encrypt_key)
         dict_data = json.loads(request.data)
         dict_data = EventManager._decrypt_data(encrypt_key, dict_data)
         callback_type = dict_data.get("type")
@@ -92,11 +93,15 @@ class EventManager(object):
 
         # only handle event v2
         schema = dict_data.get("schema")
+        # 2.0
+        # print("schema ---> " + schema)
         if schema is None:
             raise InvalidEventException("request is not callback event(v2)")
 
         # get event_type
         event_type = dict_data.get("header").get("event_type")
+        # event_type im.message.receive_v1 解释信息
+        # print("event_type-->" + event_type)
         # build event
         event = EventManager.event_type_map.get(event_type)(dict_data, token, encrypt_key)
         # get handler

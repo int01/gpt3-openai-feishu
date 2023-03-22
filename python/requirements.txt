@@ -1,4 +1,7 @@
 Flask==2.0.2
+gevent
 python-dotenv
 requests
 pycryptodome
+openai==0.27.0
+redis
