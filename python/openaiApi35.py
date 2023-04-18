@@ -9,7 +9,7 @@ from redisUtil import build_req_msg_arr_json, build_resp_msg_arr_json
 from dotenv import load_dotenv, find_dotenv
 # load env parameters form file named .env
 # load_dotenv(find_dotenv())
-load_dotenv(dotenv_path='.aichatenv',override=True)
+load_dotenv(dotenv_path='.env.aichat',override=True)
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")

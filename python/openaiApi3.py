@@ -6,6 +6,11 @@ import traceback
 from flask import Flask, redirect, render_template, request, url_for
 from redisUtil import build_req_msg_txt, build_resp_msg_txt
 
+from dotenv import load_dotenv, find_dotenv
+# load env parameters form file named .env
+# load_dotenv(find_dotenv())
+load_dotenv(dotenv_path='.env.aichat',override=True)
+
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 MAX_LEN_TOKEN = os.getenv("MAX_LEN_TOKEN")

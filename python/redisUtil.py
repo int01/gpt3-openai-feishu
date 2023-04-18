@@ -4,7 +4,7 @@ import json
 from dotenv import load_dotenv, find_dotenv
 # load env parameters form file named .env
 # load_dotenv(find_dotenv())
-load_dotenv(dotenv_path='.aichatenv',override=True)
+load_dotenv(dotenv_path='.env.aichat',override=True)
 
 host = os.getenv("AICHAT_REDIS_HOST")
 port = os.getenv("AICHAT_REDIS_PORT")
